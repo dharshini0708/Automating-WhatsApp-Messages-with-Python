@@ -1,0 +1,26 @@
+import pywhatkit
+import pyautogui
+import time
+
+# Define the message
+message = "Happy Pongal\nHappy Pongal"  # Each "Happy Pongal" on a new line
+
+# Define the recipient's phone number
+phone_number = "+123456789"  # Replace with the recipient's WhatsApp number (include country code)
+
+# Define the time to send the message
+hour = 20  # 24-hour format (e.g., 20 = 8 PM)
+minute = 15  # Minute (e.g., 15 = XX:15)
+
+try:
+    # Schedule the message
+    pywhatkit.sendwhatmsg(phone_number, message, hour, minute)
+
+    # Wait for WhatsApp Web to load
+    time.sleep(5)  # Adjust as necessary based on your browser's loading speed
+
+    # Automatically press "Enter" to send the message
+    pyautogui.press('enter')
+    print("Message sent successfully!")
+except Exception as e:
+    print(f"An error occurred: {e}")
